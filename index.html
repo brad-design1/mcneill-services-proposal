@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McNeill Services × AGE — Project Vision Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004d99;
+            --accent: #00a86b;
+            --dark: #1a1a2e;
+            --darker: #0f0f1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --border: #2a2a3e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--light);
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 8rem 2rem 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-number {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: #b8b8c8;
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            color: var(--light);
+        }
+
+        /* Hero */
+        #hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+            padding-top: 4rem;
+        }
+
+        #hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            background: linear-gradient(135deg, var(--light) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        #hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-top: 1rem;
+        }
+
+        /* Quote Block */
+        .quote-block {
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.1) 0%, rgba(0, 168, 107, 0.1) 100%);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote-block p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+
+        .quote-block .attribution {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-style: normal;
+        }
+
+        /* Workflow Steps */
+        .workflow {
+            margin: 3rem 0;
+        }
+
+        .workflow-step {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: border-color 0.3s;
+        }
+
+        .workflow-step:hover {
+            border-color: var(--primary);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .step-content .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            font-weight: 500;
+        }
+
+        .tag.manual {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+        }
+
+        .tag.bottleneck {
+            background: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+        }
+
+        .tag.opportunity {
+            background: rgba(0, 168, 107, 0.2);
+            color: var(--accent);
+        }
+
+        .step-content p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* Agent Cards */
+        .agent-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .agent-card {
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(0, 168, 107, 0.05) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .agent-card .agent-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .agent-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .agent-card .agent-role {
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .agent-card ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .agent-card li {
+            font-size: 0.8rem;
+            background: rgba(0, 102, 204, 0.15);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            color: var(--light);
+        }
+
+        /* Phase Indicator */
+        .phase-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .phase-1 {
+            background: var(--accent);
+            color: white;
+        }
+
+        .phase-2 {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 3rem 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 2rem;
+            border-left: 2px solid var(--border);
+        }
+
+        .timeline-item:last-child {
+            border-left: 2px solid var(--accent);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid var(--darker);
+        }
+
+        .timeline-item:last-child::before {
+            background: var(--accent);
+        }
+
+        .timeline-period {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-outcome {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: rgba(0, 168, 107, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .pricing-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .pricing-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .pricing-amount {
+            text-align: right;
+        }
+
+        .pricing-amount .amount {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+        }
+
+        .pricing-amount .period {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .revenue-share {
+            background: linear-gradient(135deg, rgba(0, 168, 107, 0.1) 0%, rgba(0, 102, 204, 0.1) 100%);
+            border: 2px solid var(--accent);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .revenue-share h4 {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Checklist */
+        .checklist {
+            margin: 2rem 0;
+        }
+
+        .checklist-item {
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .checklist-icon {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checklist-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .checklist-item p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Commitments */
+        .commitment {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .commitment-check {
+            font-size: 1.5rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .commitment h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .commitment p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* Agreement Section */
+        #agreement {
+            background: linear-gradient(180deg, var(--darker) 0%, rgba(0, 102, 204, 0.05) 100%);
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            section {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .workflow-step {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .pricing-amount {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#hear-you">We Hear You</a></li>
+            <li><a href="#workflow">The Work</a></li>
+            <li><a href="#agents">Your Team</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#investment">Investment</a></li>
+            <li><a href="#needs">What We Need</a></li>
+            <li><a href="#agreement">Agreement</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <p class="section-number">MCNEILL SERVICES × AGE</p>
+        <h1>Project Vision Document</h1>
+        <p class="subtitle">Your growth engine for Northwest Houston's pool & patio market</p>
+    </section>
+
+    <section id="hear-you">
+        <p class="section-number">01 — WE HEAR YOU</p>
+        <h2>We know exactly where you are — and where you're headed.</h2>
+        
+        <p class="lead">You're the offensive coordinator at Magnolia High School. You've got four kids at home. And you're building something on the side that's about to become the main thing.</p>
+        
+        <p>McNeill Services isn't a hobby. It's your exit plan. You've got the skills — you know pools, you know patios, you know the work. You've got a certified pool guy and hands who can pour concrete. What you don't have is time. What you don't have is a system that works while you're running practice or putting the kids to bed.</p>
+        
+        <p>Right now, you're a one-man show running on word of mouth. That's worked so far. But you're looking at Northwest Houston — Magnolia, Tomball, The Woodlands — and you see it. The residential explosion. Families moving in every week. Backyards waiting to happen. You know this is your moment.</p>
+
+        <p>Your edge is simple: lower overhead, better price. Where the big shops quote $100K-$120K, you come in at $85K-$90K. Same quality, less markup. That's a real advantage — but only if people can find you.</p>
+
+        <p>You don't need another thing to manage. You need a system that captures every lead, qualifies every prospect, follows up when you can't, and keeps customers informed without you touching your phone. You need to multiply yourself without hiring a staff you can't afford yet.</p>
+
+        <p>That's not a wish. That's a system. And we know how to build it.</p>
+
+        <div class="quote-block">
+            <p>"If it costs $100K-$120K with the big companies, I can do it for $85K-$90K. I'm smaller, my overhead is lower, and I do quality work."</p>
+            <p class="attribution">— Josh McNeill, McNeill Services</p>
+        </div>
+    </section>
+
+    <section id="workflow">
+        <p class="section-number">02 — THE WORK WE MAPPED</p>
+        <h2>Your current reality — and where the gaps are.</h2>
+        
+        <p>You're not failing. You're succeeding despite having no infrastructure. But every missed call while you're at practice, every lead that goes cold because you couldn't follow up, every "I'll think about it" that never got a second touch — that's money walking out the door. Here's what we see:</p>
+
+        <div class="workflow">
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Lead Generation <span class="tag bottleneck">bottleneck</span></h4>
+                    <p>You're running on word of mouth only. No ads, no SEO, no presence when someone Googles "pool builder Magnolia TX." The market is exploding and you're invisible to it.</p>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Inbound Calls <span class="tag bottleneck">biggest bottleneck</span></h4>
+                    <p>When a lead calls and you're coaching or on a job site, they get voicemail. Maybe they leave a message. More likely, they call the next guy on Google. A pool job is $30K-$100K. One missed call is $30K gone.</p>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Lead Qualification <span class="tag manual">manual</span></h4>
+                    <p>When you do connect, you're spending time on calls that go nowhere. Tire-kickers, people with $20K budgets wanting $80K pools, HOA situations that won't work. Time you don't have to waste.</p>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Site Surveys & Estimates <span class="tag manual">manual</span></h4>
+                    <p>You drive out, walk the lot, take notes, come back, build a quote. Every estimate is hours of work before you know if they're serious.</p>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Customer Communication <span class="tag opportunity">opportunity</span></h4>
+                    <p>During a build, homeowners want updates. "When's excavation?" "Did the permit come through?" You're juggling texts and calls between managing the actual work.</p>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h4>Reviews & Referrals <span class="tag opportunity">opportunity</span></h4>
+                    <p>Pool completion is the peak emotion moment. But you're already onto the next job. That window for a 5-star review and a referral closes fast.</p>
+                </div>
+            </div>
+        </div>
+
+        <p>The math is brutal: one missed call per week at a 20% close rate is two lost jobs per month. At $30K average margin, that's $60K/month walking away. You don't need to work harder. You need to capture what's already coming.</p>
+    </section>
+
+    <section id="agents">
+        <p class="section-number">03 — YOUR GROWTH ENGINE</p>
+        <h2>The system we're building for McNeill Services.</h2>
+        
+        <p>This isn't a software install. It's a team — AI agents that handle the work you can't get to. Phase 1 gets you capturing leads and generating demand immediately. Phase 2 scales your operations as you grow.</p>
+
+        <h3>Phase 1: Capture & Generate</h3>
+        <p>Deploy in the first 30 days. Immediate ROI.</p>
+
+        <div class="agent-grid">
+            <div class="agent-card">
+                <span class="phase-badge phase-1">PHASE 1</span>
+                <div class="agent-number">01</div>
+                <h4>Missed Call Text-Back</h4>
+                <p class="agent-role">Never Lose a Lead Again</p>
+                <p>Every missed call gets a text within 60 seconds. "Hey, this is McNeill Services — saw we missed your call. What can we help you with?" Captures name, address, project type, and timeline before they call your competitor.</p>
+                <ul>
+                    <li>60-second response</li>
+                    <li>Lead capture</li>
+                    <li>Auto-qualification</li>
+                    <li>Appointment booking</li>
+                </ul>
+            </div>
+
+            <div class="agent-card">
+                <span class="phase-badge phase-1">PHASE 1</span>
+                <div class="agent-number">02</div>
+                <h4>Lead Qualifier Bot</h4>
+                <p class="agent-role">Filter Before You Drive</p>
+                <p>Website chat and SMS flow that pre-qualifies every lead. Budget range, timeline, pool type, lot situation, HOA status. Filters tire-kickers, forwards only serious buyers with complete profiles.</p>
+                <ul>
+                    <li>Budget screening</li>
+                    <li>Timeline capture</li>
+                    <li>HOA check</li>
+                    <li>Serious buyer alerts</li>
+                </ul>
+            </div>
+
+            <div class="agent-card">
+                <span class="phase-badge phase-1">PHASE 1</span>
+                <div class="agent-number">03</div>
+                <h4>Review & Referral Machine</h4>
+                <p class="agent-role">Turn Jobs Into More Jobs</p>
+                <p>At pool completion — peak emotion moment — auto-sends a review request + referral offer. "Know someone who wants a pool? $500 off for them, gift card for you." Pool builds are referral-heavy. This compounds fast.</p>
+                <ul>
+                    <li>Timed review requests</li>
+                    <li>Referral incentives</li>
+                    <li>Google review boost</li>
+                    <li>Testimonial capture</li>
+                </ul>
+            </div>
+
+            <div class="agent-card">
+                <span class="phase-badge phase-1">PHASE 1</span>
+                <div class="agent-number">04</div>
+                <h4>Google & Facebook Ads</h4>
+                <p class="agent-role">Get Found When They're Looking</p>
+                <p>Targeted ads to Northwest Houston homeowners actively searching for pool builders. Geo-targeted to Magnolia, Tomball, The Woodlands. Every click goes to a landing page with instant lead capture.</p>
+                <ul>
+                    <li>Search ads</li>
+                    <li>Local targeting</li>
+                    <li>Landing pages</li>
+                    <li>Conversion tracking</li>
+                </ul>
+            </div>
+
+            <div class="agent-card">
+                <span class="phase-badge phase-1">PHASE 1</span>
+                <div class="agent-number">05</div>
+                <h4>SEO Foundation</h4>
+                <p class="agent-role">Own "Pool Builder Magnolia TX"</p>
+                <p>Blog content targeting local search terms. Before/after galleries. Service area pages. So when someone Googles "affordable pool builder near me," you show up — not just the big guys with marketing budgets.</p>
+                <ul>
+                    <li>Local SEO</li>
+                    <li>Blog content</li>
+                    <li>Service pages</li>
+                    <li>Google Business</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Phase 2: Scale Operations</h3>
+        <p>Deploy months 2-3 as volume increases.</p>
+
+        <div class="agent-grid">
+            <div class="agent-card">
+                <span class="phase-badge phase-2">PHASE 2</span>
+                <div class="agent-number">06</div>
+                <h4>Site Survey Logger</h4>
+                <p class="agent-role">Voice-to-Assessment</p>
+                <p>Walk the property, talk out loud. The agent captures lot dimensions, obstacles, soil notes, homeowner requests — and generates a structured assessment log automatically. Zero handwriting.</p>
+                <ul>
+                    <li>Voice capture</li>
+                    <li>Auto-documentation</li>
+                    <li>Photo tagging</li>
+                    <li>Estimate prep</li>
+                </ul>
+            </div>
+
+            <div class="agent-card">
+                <span class="phase-badge phase-2">PHASE 2</span>
+                <div class="agent-number">07</div>
+                <h4>Auto-Estimate Generator</h4>
+                <p class="agent-role">Quotes in Hours, Not Days</p>
+                <p>After site survey data comes in, the agent builds a preliminary cost range automatically. You review and approve before it goes out. Cuts quote time dramatically.</p>
+                <ul>
+                    <li>Cost calculation</li>
+                    <li>Material pricing</li>
+                    <li>Labor estimates</li>
+                    <li>Approval workflow</li>
+                </ul>
+            </div>
+
+            <div class="agent-card">
+                <span class="phase-badge phase-2">PHASE 2</span>
+                <div class="agent-number">08</div>
+                <h4>Permit Research Agent</h4>
+                <p class="agent-role">Know Before You Go</p>
+                <p>Pool permits vary wildly by city, county, and HOA. The agent researches requirements for any address — setbacks, HOA rules, permit timeline, fees — before you ever drive out. Huge time saver.</p>
+                <ul>
+                    <li>Permit lookup</li>
+                    <li>HOA research</li>
+                    <li>Setback rules</li>
+                    <li>Fee estimates</li>
+                </ul>
+            </div>
+
+            <div class="agent-card">
+                <span class="phase-badge phase-2">PHASE 2</span>
+                <div class="agent-number">09</div>
+                <h4>Milestone Updates</h4>
+                <p class="agent-role">Kill the "Where Are We?" Calls</p>
+                <p>Automated texts to homeowners at every stage. "Your excavation is Monday." "Gunite is done — here's a photo." "Final inspection passed, enjoy your pool!" Keeps them informed without you touching your phone.</p>
+                <ul>
+                    <li>Stage notifications</li>
+                    <li>Photo updates</li>
+                    <li>Timeline tracking</li>
+                    <li>Proactive comms</li>
+                </ul>
+            </div>
+
+            <div class="agent-card">
+                <span class="phase-badge phase-2">PHASE 2</span>
+                <div class="agent-number">10</div>
+                <h4>Subcontractor Scheduler</h4>
+                <p class="agent-role">Orchestrate the Build</p>
+                <p>Pool builds require coordinating excavation, electrical, plumbing, concrete, tile. The agent manages the scheduling chain, sends reminders, and tracks phase completion so nothing slips.</p>
+                <ul>
+                    <li>Sub coordination</li>
+                    <li>Schedule management</li>
+                    <li>Reminders</li>
+                    <li>Delay alerts</li>
+                </ul>
+            </div>
+
+            <div class="agent-card">
+                <span class="phase-badge phase-2">PHASE 2</span>
+                <div class="agent-number">11</div>
+                <h4>Spring Reactivation</h4>
+                <p class="agent-role">Resurrect Dead Leads</p>
+                <p>Every pool builder has a graveyard of "not this year" leads. The agent reaches out every March with a personal message and updated pricing. Pure found money from leads you already worked.</p>
+                <ul>
+                    <li>Lead reactivation</li>
+                    <li>Seasonal outreach</li>
+                    <li>Updated pricing</li>
+                    <li>Re-engagement</li>
+                </ul>
+            </div>
+
+            <div class="agent-card">
+                <span class="phase-badge phase-2">PHASE 2</span>
+                <div class="agent-number">12</div>
+                <h4>Maintenance Upsell</h4>
+                <p class="agent-role">One-Time to Recurring</p>
+                <p>After the build, the agent reaches out seasonally with care reminders, opening/closing checklists, and booking links. Converts one-time customers into recurring revenue or referral fees.</p>
+                <ul>
+                    <li>Seasonal outreach</li>
+                    <li>Service reminders</li>
+                    <li>Partner referrals</li>
+                    <li>Recurring revenue</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <p class="section-number">04 — BUILD ROADMAP</p>
+        <h2>From zero to autonomous in 90 days.</h2>
+        
+        <p>This isn't a template install. It's a working system calibrated to your business. Here's how we get there.</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <p class="timeline-period">Week 1-2: Foundation</p>
+                <h4>Website Launch & System Setup</h4>
+                <p>Your website goes live — Home, Services, Gallery, About, Contact, Blog. Clean, fast, built to convert. Simultaneously, we install AGE on your machine, configure the missed call text-back system, and build your lead qualifier bot.</p>
+                <div class="timeline-outcome">✓ Website live. Lead capture active. Missed calls covered.</div>
+            </div>
+
+            <div class="timeline-item">
+                <p class="timeline-period">Week 3-4: Lead Generation Live</p>
+                <h4>Ads & SEO Launch</h4>
+                <p>Google and Facebook ads go live targeting Magnolia, Tomball, The Woodlands. First blog posts published. Google Business profile optimized. Leads start flowing to your qualifier bot.</p>
+                <div class="timeline-outcome">✓ Paid traffic flowing. Organic foundation laid. First qualified leads in your inbox.</div>
+            </div>
+
+            <div class="timeline-item">
+                <p class="timeline-period">Month 2: Calibration</p>
+                <h4>Optimize & Expand</h4>
+                <p>We tune ad targeting based on what's converting. Review/referral machine goes live on completed jobs. You're closing leads you would have missed. We start building Phase 2 modules.</p>
+                <div class="timeline-outcome">✓ First jobs from AGE leads. Review pipeline active. Phase 2 in development.</div>
+            </div>
+
+            <div class="timeline-item">
+                <p class="timeline-period">Month 3: Full Operation</p>
+                <h4>Scale Mode</h4>
+                <p>Phase 2 agents deploy as needed — site survey logger, auto-estimates, milestone updates, subcontractor coordination. The system runs. You coach football, put your kids to bed, and close deals.</p>
+                <div class="timeline-outcome">✓ Full pipeline operational. You're in command. The system is running.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="investment">
+        <p class="section-number">05 — INVESTMENT</p>
+        <h2>What it costs — and how we stay aligned.</h2>
+        
+        <p>We're not selling software and walking away. We're building infrastructure that will directly generate revenue for McNeill Services. Our pricing reflects that partnership.</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div>
+                    <h4>Website Design & Development</h4>
+                    <p>Full website build — Home, Services, Gallery, About, Contact, Blog. Mobile-optimized, SEO-ready, built to convert.</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="amount">$2,000</span>
+                    <span class="period">one-time</span>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div>
+                    <h4>AGE Build & Deployment</h4>
+                    <p>Full agent architecture — Phase 1 modules, system installation, workflow mapping, initial training, and onboarding.</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="amount">$5,000</span>
+                    <span class="period">one-time</span>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div>
+                    <h4>Ongoing Support & Evolution</h4>
+                    <p>Direct access to Brad and Chrix via Discord. System updates, agent improvements, new capability deployment as the platform evolves.</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="amount">$500</span>
+                    <span class="period">per month</span>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div>
+                    <h4>Ad Spend (Estimated)</h4>
+                    <p>Google and Facebook ads budget. You control spend, we manage targeting and optimization. Recommended starting budget.</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="amount">$500-1,000</span>
+                    <span class="period">per month / your account</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="revenue-share">
+            <h4>⚡ Performance Alignment — We Succeed When You Succeed</h4>
+            <p>We're not building software and walking away. We're building a growth engine that will directly generate revenue for McNeill Services. We want skin in the game.</p>
+            <p><strong>Proposed structure:</strong> 20% of gross profit (revenue minus labor and materials) on jobs generated through the AGE system. No baseline — every dollar counts from day one.</p>
+            <p>Additionally, a 3% participation clause on any acquisition or business sale tied to the system's capabilities.</p>
+            <p>The specific terms are negotiable — our goal is alignment, not ownership. We win when you win.</p>
+        </div>
+
+        <p><strong>Total to start:</strong> $7,000 one-time + $500/month + rev share on growth.</p>
+        <p>One pool job covers your entire first-year investment. Everything after that is profit you wouldn't have had.</p>
+    </section>
+
+    <section id="needs">
+        <p class="section-number">06 — WHAT WE NEED</p>
+        <h2>To hit the ground running.</h2>
+        
+        <p>To scope the build correctly and launch fast, we need the following from you.</p>
+
+        <div class="checklist">
+            <div class="checklist-item">
+                <div class="checklist-icon">📸</div>
+                <div>
+                    <h4>Project Photos</h4>
+                    <p>Before/during/after shots of completed pools and patios. We've got some from the brand assets folder — let us know if there are more.</p>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <div class="checklist-icon">💬</div>
+                <div>
+                    <h4>Your Pitch</h4>
+                    <p>How do you describe what you do? What do you say when someone asks "why should I hire you instead of a bigger company?" Your voice, your words.</p>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <div class="checklist-icon">📍</div>
+                <div>
+                    <h4>Service Area Details</h4>
+                    <p>Exact cities/neighborhoods you want to target. Magnolia is home base — how far out will you drive? Tomball? The Woodlands? Conroe?</p>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <div class="checklist-icon">💰</div>
+                <div>
+                    <h4>Pricing Ranges</h4>
+                    <p>Rough ranges for different job types. Pool only? Pool + patio? Patio only? Helps us qualify leads accurately.</p>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <div class="checklist-icon">📞</div>
+                <div>
+                    <h4>Phone Number for Text-Back</h4>
+                    <p>The number that should receive forwarded leads and send text-back responses. Can be your cell or a dedicated business line.</p>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <div class="checklist-icon">⭐</div>
+                <div>
+                    <h4>Past Customer Contacts</h4>
+                    <p>Anyone who's hired you before. We'll reach out for reviews and referrals — that's immediate credibility for the new site.</p>
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <div class="checklist-icon">🏠</div>
+                <div>
+                    <h4>Competitor Sites</h4>
+                    <p>The bigger companies you're competing against. We'll make sure you stand out — and learn what's working in your market.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="agreement">
+        <p class="section-number">07 — OUR COMMITMENT</p>
+        <h2>What we stand behind.</h2>
+        
+        <p>You're trusting us with your exit plan. We don't take that lightly. Here's what we commit to, in plain language.</p>
+
+        <div class="commitment">
+            <div class="commitment-check">✓</div>
+            <div>
+                <h4>We are in the Discord voice channel.</h4>
+                <p>You don't open a support ticket. You click in and say "this stupid robot" and we're there. Brad and Chrix take shifts. One of us is always reachable during working hours.</p>
+            </div>
+        </div>
+
+        <div class="commitment">
+            <div class="commitment-check">✓</div>
+            <div>
+                <h4>We build what we spec — no scope creep excuses.</h4>
+                <p>This document is our mutual understanding of the build. If something's in here, it gets built. If the scope changes, we talk about it together first.</p>
+            </div>
+        </div>
+
+        <div class="commitment">
+            <div class="commitment-check">✓</div>
+            <div>
+                <h4>We stay one step ahead.</h4>
+                <p>As AI capabilities evolve, your system improves. We monitor what's shipping — from model updates to new tooling — and apply what matters to your build. You don't have to watch the space. We do.</p>
+            </div>
+        </div>
+
+        <div class="commitment">
+            <div class="commitment-check">✓</div>
+            <div>
+                <h4>We're building for your exit.</h4>
+                <p>You described a future where coaching is behind you and McNeill Services is your full-time income. We're building it so it can scale — documented, systematized, and ready to grow with you.</p>
+            </div>
+        </div>
+
+        <div class="commitment">
+            <div class="commitment-check">✓</div>
+            <div>
+                <h4>Your success is our success.</h4>
+                <p>The rev share means we only win when you win. We're not billing hours and hoping it works. We're invested in every lead, every job, every 5-star review.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="font-size: 1.2rem; color: var(--light);">Ready to build your growth engine?</p>
+            <a href="mailto:brad@agegrowth.ai?subject=McNeill%20Services%20-%20Let's%20Build" class="cta-button">Let's Talk</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>McNeill Services × AGE — Project Vision Document</p>
+        <p>Prepared March 2026</p>
+    </footer>
+</body>
+</html>
